@@ -23,7 +23,8 @@ const displayLevelWord = (words) => {
     wordContainer.innerHTML = "";
     if(words.length == 0){
         wordContainer.innerHTML = `
-        <div class="text-center bg-sky-100 col-span-full py-10 rounded-xl space-y-6">
+        <div class="text-center col-span-full py-10  space-y-6">
+        <img src="./assets/alert-error.png" class="mx-auto"
             <p class="font-bangla font-normal text-lg text-[#79716B]">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
             <h2 class="font-bangla font-medium text-4xl">নেক্সট Lesson এ যান</h2>
         </div>
@@ -34,9 +35,9 @@ const displayLevelWord = (words) => {
         const cardwordDiv = document.createElement("div");
         cardwordDiv.innerHTML = ` 
         <div class="bg-white py-10 px-4 text-center rounded-xl shadow-sm space-y-4">
-            <h2 class="font-bold text-3xl">${word.word}</h2>
+            <h2 class="font-bold text-3xl">${word.word ? word.word : "no word available"}</h2>
             <p class="font-normal text-xl">Meaning / Pronounciation</p>
-            <div class="font-semibold text-3xl font-bangla">"${word.meaning} / ${word.pronunciation}"</div>
+            <div class="font-semibold text-3xl font-bangla">"${word.meaning ? word.meaning : "No meaning found"} / ${word.pronunciation ? word.pronunciation : "No pronunciation found"}"</div>
             <div class="flex justify-between items-center">
                 <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
                 <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-low"></i></button>
