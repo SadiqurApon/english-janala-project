@@ -11,15 +11,29 @@ const loadLevelWord = (id) => {
         .then(data => displayLevelWord(data.data));
 };
 
+// "id": 4,
+//       "level": 5,
+//       "word": "Diligent",
+//       "meaning": "পরিশ্রমী",
+//       "pronunciation": "ডিলিজেন্ট"
+
 const displayLevelWord = (words) => {
     // console.log(words);
     const wordContainer = document.getElementById("word-container");
-    // wordContainer.innerHTML = "";
+    wordContainer.innerHTML = "";
     words.forEach(word => {
         console.log(word);
         const cardwordDiv = document.createElement("div");
         cardwordDiv.innerHTML = ` 
-        <p>cat</p>
+        <div class="bg-white py-10 px-4 text-center rounded-xl shadow-sm space-y-4">
+            <h2 class="font-bold text-3xl">${word.word}</h2>
+            <p class="font-normal text-xl">Meaning / Pronounciation</p>
+            <div class="font-semibold text-3xl font-bangla">"${word.meaning} / ${word.pronunciation}"</div>
+            <div class="flex justify-between items-center">
+                <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
+                <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-low"></i></button>
+            </div>
+        </div>
         `
         wordContainer.append(cardwordDiv);
     });
