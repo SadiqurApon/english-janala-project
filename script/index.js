@@ -6,7 +6,10 @@ const loadLassons = () => {
 
 const removeActive = () => {
     const lessonBtns = document.querySelectorAll(".lesson-btn");
-    console.log(lessonBtns);
+    // console.log(lessonBtns);
+    lessonBtns.forEach(btn => {
+        btn.classList.remove("active");
+    })
 }
 
 const loadLevelWord = (id) => {
